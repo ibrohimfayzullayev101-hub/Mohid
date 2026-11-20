@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
     <nav class="container nav">
 
 <a href=""><img src="/images/Logo.svg" alt=""></a>
-<ul class="  nav-list">
+<ul class="nav-list" id="nav-list">
     <li><a href="#">Home</a></li>
     <li><a href="#">Brands</a></li>
     <li><a href="#">Recent Products</a></li>
@@ -31,7 +31,7 @@
     <button><img src="/images/Person.png" alt=""></button>
     <button><img src="/images/Shopping Cart.png" alt=""></button>
 </div>
-<button class="menu-btn">
+<button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-list">
     <img src="/images/menu_50dp_999999_FILL0_wght400_GRAD0_opsz48.svg" alt="">
 </button>
     </nav>
@@ -87,7 +87,7 @@
         <div class="product-grid">
   <div class="product-card">
     <div class="image-wrapper">
-      <img src="/images/MKUQ3_VW_34FR+watch-45-alum-midnight-nc-7s_VW_34FR_WF_CO-removebg-preview (1) 1.png" alt="Apple Smart I">
+      <img src="/images/MKUQ3_VW_34FR+watch-45-alum-midnight-nc-7s_VW_34FR_WF_CO-removebg-preview (1) 1.png " alt="Apple Smart I">
       <div class="action-buttons">
         <button class="btn-cart">🛒</button>
         <button class="btn-wishlist">❤️</button>
@@ -242,6 +242,25 @@
 <footer>
   <h2>Copyright @ 2022 | Mohid</h2>
 </footer>
+
+<script>
+    const menuButton = document.querySelector(".menu-btn");
+    const navList = document.querySelector(".nav-list");
+
+    menuButton.addEventListener("click", () => {
+        const isOpen = navList.classList.toggle("is-open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    });
+
+    navList.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+            navList.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation");
+        }
+    });
+</script>
 
 </body>
 </html>

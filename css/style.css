@@ -540,12 +540,12 @@ text-align: center;
 }
 
 footer{
-    width: 1501;
-height: 65;
-top: 3673px;
-left: -1px;
-opacity: 1;
-background-color: #000;
+    width: 100%;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
 }
 
 .hero-section {
@@ -749,16 +749,35 @@ background-color: #000;
     }
 
     .menu-btn {
-        display: none;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        order: 2;
+        cursor: pointer;
+    }
+
+    .menu-btn img {
+        width: 28px;
+        height: 28px;
     }
 
     .nav-list {
-        display: flex;
+        display: none;
         order: 3;
         flex: 1 0 100%;
         flex-wrap: wrap;
         justify-content: center;
         gap: 12px 20px;
+    }
+
+    .nav-list.is-open {
+        display: flex;
+        width: 100%;
+        margin-top: 4px;
+        padding: 14px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
     }
 
     .nav-list a {
